@@ -2,9 +2,6 @@
 # -*- coding: UTF-8 -*-
 from enum import Enum
 from position import Pos
-import pygame
-import sys
-from time import sleep
 
 
 class CellState(Enum):
@@ -19,17 +16,12 @@ class Gol:
         assert isinstance(pos, Pos)
         return self.universe[pos] if pos in self.universe else CellState.DEAD
 
-    def set_state(self, pos, state):
-        assert isinstance(pos, Pos)
-        assert isinstance(state, CellState)
-        if state == CellState.DEAD:
-            if pos in self.universe:
-                _ = self.universe.pop(pos)
-        else:
-            self.universe[pos] = state
-
     def make_alive(self, pos):
-        self.set_state(pos, CellState.ALIVE)
+        self.universe[pos] = CellState.ALIVE
+
+    def make_dead(self, pos):
+        if pos in self.universe:
+            _ = self.universe.pop(pos)
 
     def get_cells_to_step(self):
         cells_to_step = set()

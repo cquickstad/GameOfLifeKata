@@ -1,4 +1,7 @@
 from gol import *
+import pygame
+import sys
+from time import sleep
 
 
 class GolGfx:
