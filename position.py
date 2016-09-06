@@ -1,9 +1,16 @@
-from collections import namedtuple
+class Position:
+    def __init__(self, x, y):
+        self.x, self.y = x, y
 
-PositionParent = namedtuple('PositionParent', ['x', 'y'])
+    def __hash__(self):
+        return hash((self.x, self.y))
 
+    def __eq__(self, other):
+        return (self.x, self.y) == (other.x, other.y)
 
-class Position(PositionParent):
+    def __ne__(self, other):
+        return self != other
+
     def get_neighbors(self):
         set_of_neighbors = set()
         for i in range(self.x - 1, self.x + 2):
