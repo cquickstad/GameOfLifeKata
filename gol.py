@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: UTF-8 -*-
 from enum import Enum
-from position import Position
+from position import Pos
 import pygame
 import sys
 from time import sleep
@@ -16,11 +16,11 @@ class Gol:
         self.universe = dict()
 
     def get_state(self, pos):
-        assert isinstance(pos, Position)
+        assert isinstance(pos, Pos)
         return self.universe[pos] if pos in self.universe else CellState.DEAD
 
     def set_state(self, pos, state):
-        assert isinstance(pos, Position)
+        assert isinstance(pos, Pos)
         assert isinstance(state, CellState)
         if state == CellState.DEAD:
             if pos in self.universe:
@@ -50,7 +50,7 @@ class Gol:
         return self.universe
 
     def count_alive_neighbors(self, pos):
-        assert isinstance(pos, Position)
+        assert isinstance(pos, Pos)
         num_alive_neighbors = 0
         for neighbor in pos.get_neighbors():
             if self.get_state(neighbor) == CellState.ALIVE:

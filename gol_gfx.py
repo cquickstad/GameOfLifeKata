@@ -38,7 +38,7 @@ class GolGfx:
 
 def add_x_y_list_to_base_pos(game, base_pos, x_y_list):
     for x, y in x_y_list:
-        game.make_alive(Position(base_pos.x + x, base_pos.y + y))
+        game.make_alive(Pos(base_pos.x + x, base_pos.y + y))
 
 
 def add_blinker_to_game(game, base_pos):
@@ -62,9 +62,9 @@ if __name__ == '__main__':
     generation_seconds = 0.125 / 4
 
     game = Gol()
-    add_blinker_to_game(game, Position(40, 40))
-    add_glider_to_game(game, Position(5, 5))
-    add_gosper_glider_gun_to_game(game, Position(20, 0))
+    add_blinker_to_game(game, Pos(40, 40))
+    add_glider_to_game(game, Pos(5, 5))
+    add_gosper_glider_gun_to_game(game, Pos(20, 0))
 
     gfx = GolGfx()
     gfx.plot_universe(game.get_universe())
