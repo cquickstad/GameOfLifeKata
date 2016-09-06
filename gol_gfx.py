@@ -1,4 +1,3 @@
-from position import *
 from gol import *
 
 
