@@ -43,7 +43,7 @@ class GolTest(unittest.TestCase):
         self.assertEqual(CellState.DEAD, Gol.next_cell_state(CellState.ALIVE, 4))
 
     def test_count_alive_neighbors(self):
-        self.assertEqual(0, self.game.count_alive_neighbors(Pos(5, 5)))
+        self.assertEqual(0, self.game.num_alive_neighbors(Pos(5, 5)))
 
         self.game.set_state(Pos(1, 1), CellState.ALIVE)
 
@@ -58,7 +58,7 @@ class GolTest(unittest.TestCase):
         self.game.set_state(Pos(5, 6), CellState.ALIVE)
         self.game.set_state(Pos(6, 6), CellState.ALIVE)
 
-        self.assertEqual(8, self.game.count_alive_neighbors(Pos(5, 5)))
+        self.assertEqual(8, self.game.num_alive_neighbors(Pos(5, 5)))
 
     def test_blinker(self):
         self.game.set_state(Pos(5, 5), CellState.ALIVE)
