@@ -1,3 +1,7 @@
+#!/usr/bin/env python3
+# -*- coding: UTF-8 -*-
+
+
 class Pos:
     def __init__(self, x, y):
         self.x, self.y = x, y

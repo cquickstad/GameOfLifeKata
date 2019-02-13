@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: UTF-8 -*-
+
 import unittest
 from position import Pos
 from gol import Gol, CellState
